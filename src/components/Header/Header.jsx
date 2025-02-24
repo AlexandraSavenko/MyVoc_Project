@@ -1,5 +1,7 @@
 export default function Header (){
+    
     return <header>
-        <h2>Time to learn words</h2>
+        <h2>Logo</h2>
+
     </header>
 }

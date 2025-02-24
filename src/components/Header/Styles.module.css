@@ -1,0 +1,9 @@
+.btn{
+    color: red;
+  }
+  .isDark {
+    background-color: black;
+  }
+  .isLight {
+    background-color: pink;
+  }
