@@ -1,12 +1,12 @@
 import css from "./UserForm.module.css"
 import { Formik, Form, Field } from "formik";
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
-const userSchema = Yup.object().shape({
-    targetWord: Yup.string().required('Requred'),
-    translationWord: Yup.string().required('Requred'),
-    partOfSpeech: "other",
-})
+// const userSchema = Yup.object().shape({
+//     targetWord: Yup.string().required('Requred'),
+//     translationWord: Yup.string().required('Requred'),
+//     partOfSpeech: "other",
+// })
 
 export default function UserForm (){
     return <Formik initialValues={{

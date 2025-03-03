@@ -5,6 +5,7 @@
 }
 body{
   background-color: gray;
+
 }
 img{
   display: block;
@@ -23,9 +24,11 @@ ul, ol{
 .wrapper{
   /* margin-left: 20px;
   margin-right: 20px; */
-  width: 80%;margin: 0 auto;
-  background-color: black;
-  color: white;
+  width: 80%;
+  margin: 0 auto;
+  background-color: pink;
+  color: black;
   padding: 10px;
-  height: auto;
+  min-width: 320px;
+  min-height: 100vh;
 }
