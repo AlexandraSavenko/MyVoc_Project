@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import { changeLang } from "../../redux/store";
+import { changeLang, selectLang } from "../../redux/localLang"
 
 
 export default function Local () {
-    const currentLang = useSelector(state => state.local.lang)
+    const currentLang = useSelector(selectLang)
     const dispatch = useDispatch()
     const handleSelect = (e) => {
 dispatch(changeLang(e.target.value))    }
