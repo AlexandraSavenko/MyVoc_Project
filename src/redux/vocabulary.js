@@ -8,9 +8,12 @@ initialState: {
 reducers: {
     addWord: (state, action) => {
         state.words.push(action.payload)
+    },
+    deleteWord: (state, action) => {
+       state.words = state.words.filter(el => el.id != action.payload)
     }
 }
 })
 
-export const {addWord} = slice.actions;
+export const {addWord, deleteWord} = slice.actions;
 export default slice.reducer
