@@ -1,5 +1,7 @@
+import { useDispatch } from "react-redux";
 import css from "./UserForm.module.css"
 import { Formik, Form, Field } from "formik";
+import { addWord } from "../../redux/vocabulary";
 // import * as Yup from 'yup';
 
 // const userSchema = Yup.object().shape({
@@ -9,13 +11,15 @@ import { Formik, Form, Field } from "formik";
 // })
 
 export default function UserForm (){
+    const dispatch = useDispatch()
     return <Formik initialValues={{
         targetWord: "",
         translationWord: "",
         partOfSpeech: "other",
     }}
     onSubmit={(values, actions)=>{
-        console.log(values)
+        const newEntry = {...values, id: crypto.randomUUID()}
+        dispatch(addWord(newEntry))
         actions.resetForm()
     }}>
         <Form className={css.form}>

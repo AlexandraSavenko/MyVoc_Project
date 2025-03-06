@@ -1,6 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit"
 
+import { persistStore, 
+    persistReducer, 
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER, } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+
 import langReducer from './localLang'
+import vocReduce from './vocabulary'
 // import { changeLang } from "./localLang"
 // const initState = {
 //     local: {
@@ -22,4 +33,22 @@ import langReducer from './localLang'
 // }
 // }
 
-export const store = configureStore({reducer: {locale: langReducer}})
+const persistConfig = {
+    key: 'words',
+    storage,
+    whitelist: ['words']
+  }
+   
+  const persisteVocdReducer = persistReducer(persistConfig, vocReduce)
+
+export const store = configureStore({reducer: {locale: langReducer,
+    vocabulary: persisteVocdReducer
+},
+middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),})
+
+export const persistor = persistStore(store)

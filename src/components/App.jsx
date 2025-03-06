@@ -3,6 +3,7 @@
 import Header from "./Header/Header"
 import "../components/App.module.css"
 import Form from "./UserForm/UserForm"
+import UserVocabularyList from "./UserVocabularyList/UserVocabularyList"
 
 function App() {
   
@@ -11,6 +12,7 @@ function App() {
     <div className="wrapper">
       <Header/>
       <Form/>
+      <UserVocabularyList/>
       </div>
   )
 }
